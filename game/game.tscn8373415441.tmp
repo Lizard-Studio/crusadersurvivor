@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cag74h7xgqnso"]
+
+[ext_resource type="Script" uid="uid://bp8au3jouoo3c" path="res://game/scripts/character.gd" id="2_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://bvru3wdend0gi" path="res://game/character.tscn" id="2_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://cngub1oen4muy" path="res://game/enemy.tscn" id="4_4fuuu"]
+[ext_resource type="Script" uid="uid://bssh0l3gq5qrt" path="res://game/scripts/flow_field.gd" id="5_dakft"]
+[ext_resource type="Script" uid="uid://yeie37g1ur22" path="res://game/scripts/enemy_spawner.gd" id="5_dxrkv"]
+[ext_resource type="Texture2D" uid="uid://b4bs3ohrdrsyv" path="res://icon.svg" id="6_dakft"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5opy"]
+texture = ExtResource("6_dakft")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dxrkv"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_u5opy")
+
+[node name="Game" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("2_h7iqs")]
+unique_name_in_owner = true
+z_index = 5
+position = Vector2(589, 258)
+script = ExtResource("2_dxrkv")
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2(-5, -2)
+
+[node name="Goal" type="Node2D" parent="Character"]
+
+[node name="HealthBar" type="ProgressBar" parent="Character"]
+offset_left = -60.0
+offset_top = -110.0
+offset_right = 60.0
+offset_bottom = -91.0
+size_flags_horizontal = 6
+value = 100.0
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("5_dxrkv")
+
+[node name="Enemy" parent="." instance=ExtResource("4_4fuuu")]
+position = Vector2(3242, 102)
+
+[node name="FlowField" type="Node2D" parent="." node_paths=PackedStringArray("tilemap", "player")]
+script = ExtResource("5_dakft")
+tilemap = NodePath("../NavGrid")
+player = NodePath("../Character")
+
+[node name="NavGrid" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_dxrkv")
+format = 2
+layer_0/tile_data = PackedInt32Array(196612, 0, 0, 196620, 0, 0, 196628, 0, 0, 720900, 0, 0, 720908, 0, 0, 720916, 0, 0, 1245204, 0, 0, 1245196, 0, 0, 1245188, 0, 0, 196636, 0, 0, 720924, 0, 0, 1245212, 0, 0, 1245220, 0, 0, 720932, 0, 0, 196644, 0, 0)

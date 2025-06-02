@@ -1,0 +1,14 @@
+AnimatedSprite2D
+VBoxContainer
+Button
+Label
+ColorRect
+TileMap
+Node2D
+ProgressBar
+TileMapLayer
+Timer
+NavigationAgent2D
+NavigationRegion2D
+Sprite2D
+CollisionShape2D
