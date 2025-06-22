@@ -18,7 +18,7 @@ func _maybe_spawn_enemy():
 	if enemy_scene == null or player == null:
 		return
 
-	if randi() % 3 != 0: #!
+	if randi()%2 != 0: #!
 		return
 
 	var enemy = enemy_scene.instantiate()

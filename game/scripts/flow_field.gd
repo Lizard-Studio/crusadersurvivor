@@ -15,8 +15,8 @@ var update_timer := 0.0
 const UPDATE_INTERVAL := 0.2
 
 func _ready():
-	assert(tilemap != null, "TileMap не назначен!")
-	assert(player != null, "Игрок не назначен!")
+	assert(tilemap != null, "no tm")
+	assert(player != null, "no player")
 	update_field()
 
 func update_field():
@@ -47,7 +47,6 @@ func update_field():
 				cost_field[neighbor_cell] = new_cost
 				open_set.append(neighbor_cell)
 	
-	# Строим flow field
 	for cell in cost_field:
 		var min_cost = cost_field[cell]
 		var best_dir = Vector2.ZERO
