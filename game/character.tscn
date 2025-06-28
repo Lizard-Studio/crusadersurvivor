@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bx6usojep1s67" path="res://assets/frog_siderun.png" id="6_o5chr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn6cc"]
-radius = 1.88237
+radius = 2.82354
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2nc5j"]
 atlas = ExtResource("1_hmdvm")
@@ -177,7 +177,6 @@ scale = Vector2(8.5, 8.5)
 shape = SubResource("CircleShape2D_mn6cc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_05h67")
 animation = &"run_side"

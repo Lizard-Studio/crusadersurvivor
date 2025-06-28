@@ -1,4 +1,10 @@
-res://game/game.tscn
-res://game/scripts/character.gd
 res://game/scripts/enemy_ai.gd
-res://game/scripts/flow_field.gd
+res://xporb/experience_orb.tscn
+res://game/enemy.tscn
+res://mainpage/menu.tscn
+res://game/game.tscn
+res://game/character.tscn
+res://deathscreen/deathscreen.tscn
+res://kashtan/Projectile.tscn
+res://game/scripts/character.gd
+res://kashtan/scripts/projectile.gd

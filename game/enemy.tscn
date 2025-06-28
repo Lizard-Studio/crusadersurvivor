@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6b3p6ih5k7ny" path="res://assets/zombie_side.png" id="4_u8wmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0fifv"]
+radius = 4.8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oc84"]
 atlas = ExtResource("2_yospj")
@@ -138,6 +139,7 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_0fifv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -145,8 +147,9 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_0fifv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
-scale = Vector2(3, 3)
+z_index = 4
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(1.875, 1.875)
 sprite_frames = SubResource("SpriteFrames_1oc84")
-animation = &"run_front"
-frame_progress = 0.387287
+animation = &"run_side"
+frame_progress = 0.88385

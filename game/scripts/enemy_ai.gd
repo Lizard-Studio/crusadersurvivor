@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 30.0
+@export var speed: float = 50.0
 @export var hit_cooldown = 1.0
 @export var damage_amount: int = 10
 @export var health: int = 30
@@ -12,7 +12,7 @@ var last_hit_time = 0.0
 var last_side_right := true
 var last_direction := Vector2.ZERO
 
-#const XP_ORB = preload("res://experience_orb.tscn") <- спросить у зеленой
+const XP_ORB = preload("res://xporb/experience_orb.tscn")
 
 func set_flow_field(field: Node) -> void:
 	flow_field = field
@@ -102,10 +102,11 @@ func take_damage(damage: int):
 		die()
 
 func die():
-	#spawn_xp_orb()
+	spawn_xp_orb()
 	queue_free()
 
-#func spawn_xp_orb():
-#	var xp_orb = XP_ORB.instantiate()
-#	xp_orb.global_position = global_position
-#	get_parent().add_child(xp_orb)
+func spawn_xp_orb():
+	var xp_orb = XP_ORB.instantiate()
+	xp_orb.add_to_group("xp_orb")
+	xp_orb.global_position = global_position
+	get_parent().add_child(xp_orb)
